@@ -1,0 +1,112 @@
+.organizers {
+  padding: 6rem 5%;
+  position: relative;
+}
+
+.organizers-bg-grid {
+  position: absolute;
+  inset: 0;
+  background: var(--section-gradient-tl), var(--section-gradient-br), var(--section-grid);
+  background-size: 100% 100%, 100% 100%, var(--section-grid-size);
+  background-color: var(--color-deep-black);
+  pointer-events: none;
+}
+
+.organizers-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.organizers-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.organizers-desc {
+  font-size: 1rem;
+  color: var(--color-light-gray);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.organizers-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.organizers-lead {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.organizers-team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.organizer-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.organizer-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+}
+
+.lead-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.organizer-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-deep-black);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.organizer-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.25rem;
+}
+
+.organizer-role {
+  font-size: 0.9rem;
+  color: var(--color-light-gray);
+}
+
+@media (max-width: 768px) {
+  .organizers-lead,
+  .organizers-team {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

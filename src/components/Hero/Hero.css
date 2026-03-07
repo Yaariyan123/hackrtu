@@ -1,0 +1,218 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-deep-black);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      135deg,
+      rgba(5, 5, 5, 0.88) 12%,
+      rgba(5, 5, 5, 0.72) 42%,
+      rgba(5, 5, 5, 0.9) 100%
+  );
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(45px);
+  opacity: 0.35;
+  pointer-events: none;
+  animation: pulseGlow 6.5s infinite;
+}
+
+.hero-orb-one {
+  width: 16rem;
+  height: 16rem;
+  background: rgba(255, 215, 0, 0.55);
+  top: 18%;
+  right: 10%;
+}
+
+.hero-orb-two {
+  width: 12rem;
+  height: 12rem;
+  background: rgba(184, 134, 11, 0.45);
+  bottom: 12%;
+  left: 10%;
+  animation-delay: 0.8s;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  max-width: 900px;
+}
+
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 50px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 215, 0, 0.2);
+}
+
+.hero-title .year {
+  display: inline-block;
+  color: var(--color-gold);
+}
+
+.hero-slogan {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-white);
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.hero-cta {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 1rem 2.5rem;
+  background: var(--color-gold);
+  color: var(--color-deep-black);
+  border-radius: 9999px;
+  margin-bottom: 3rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 4px 20px rgba(255, 215, 0, 0.25);
+}
+
+.hero-cta:hover {
+  box-shadow: 0 0 45px rgba(255, 215, 0, 0.6), 0 4px 25px rgba(255, 215, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.hero-countdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.countdown-card {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  min-width: 110px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.countdown-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 0.25rem;
+}
+
+.countdown-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--color-white);
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .hero-slogan {
+    font-size: 1rem;
+  }
+
+  .hero-countdown {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content {
+    padding: 6rem 1rem 2.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-slogan {
+    font-size: 0.9rem;
+  }
+
+  .hero-cta {
+    padding: 0.9rem 2rem;
+    font-size: 0.85rem;
+  }
+
+  .hero-countdown {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .countdown-card {
+    padding: 1rem 1.25rem;
+    min-width: 85px;
+    flex: 1 1 calc(33.333% - 0.5rem);
+    max-width: calc(33.333% - 0.5rem);
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+  }
+}

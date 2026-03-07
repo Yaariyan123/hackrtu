@@ -1,0 +1,94 @@
+.hero-tag {
+    margin: 0;
+    color: #ffea7a;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+}
+
+.hero-title {
+    margin: 1.1rem 0 0;
+    font-family: var(--font-heading);
+    font-size: clamp(2.7rem, 9.2vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    text-shadow: 0 0 24px rgba(255, 215, 0, 0.24);
+}
+
+.hero-slogan {
+    margin-top: 1.3rem;
+    color: #ececec;
+    font-size: clamp(1rem, 2.4vw, 1.55rem);
+    letter-spacing: 0.05em;
+}
+
+.hero-cta-link {
+    display: inline-block;
+    margin-top: 1.7rem;
+}
+
+.hero-cta-btn {
+    background: linear-gradient(135deg, #ffd700 0%, #b8860b 100%);
+    color: #0e0e0e;
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    border-radius: 999px;
+    padding: 0.95rem 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.hero-countdown {
+    margin-top: 2.3rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+    gap: 1rem;
+    max-width: 530px;
+}
+
+.countdown-block {
+    padding: 1rem 1rem 0.9rem;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.countdown-value {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    color: var(--gold-main);
+}
+
+.countdown-label {
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: #d4d4d4;
+}
+
+@keyframes pulseGlow {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 740px) {
+    .hero-section {
+        padding-top: 6.5rem;
+    }
+
+    .hero-countdown {
+        grid-template-columns: repeat(3, minmax(82px, 1fr));
+        gap: 0.7rem;
+    }
+}
