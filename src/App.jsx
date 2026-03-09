@@ -7,6 +7,10 @@ import ThemesPage from './pages/ThemesPage'
 import TimelinePage from './pages/TimelinePage'
 import OrganizersPage from './pages/OrganizersPage'
 import ContactPage from './pages/ContactPage'
+import RegisterPage from './pages/RegisterPage'
+import LoginPage from './pages/LoginPage'
+import DashboardPage from './pages/DashboardPage'
+import AdminDashboard from './pages/AdminDashboard'
 
 function App() {
   return (
@@ -19,7 +23,11 @@ function App() {
         <Route path="timeline" element={<TimelinePage />} />
         <Route path="organizers" element={<OrganizersPage />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="dashboard" element={<DashboardPage />} />
       </Route>
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
     </Routes>
   )
 }

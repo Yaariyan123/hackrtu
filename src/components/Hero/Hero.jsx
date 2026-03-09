@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import './Hero.css'
-
-const DEVFOLIO_URL = 'https://devfolio.co' // Replace with actual Devfolio URL when provided
 
 function Hero() {
   const [countdown, setCountdown] = useState({ days: 86, hours: 13, minutes: 58 })
@@ -42,14 +41,9 @@ function Hero() {
           DISRUPT DEV HACKATHON <span className="year">2077</span>
         </h1>
         <p className="hero-slogan">Innovate • Build • Disrupt</p>
-        <a
-          href={DEVFOLIO_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hero-cta"
-        >
-          REGISTER ON DEVFOLIO
-        </a>
+        <Link to="/register" className="hero-cta">
+          REGISTER
+        </Link>
         <div className="hero-countdown">
           <div className="countdown-card">
             <span className="countdown-value">{countdown.days}</span>

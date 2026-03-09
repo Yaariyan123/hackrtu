@@ -1,0 +1,42 @@
+import api from '../utils/api';
+
+const notifyAuthChanged = () => {
+  window.dispatchEvent(new Event('auth:changed'));
+};
+
+export const authService = {
+  register: async (userData) => {
+    const response = await api.post('/auth/register', userData);
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      if (response.data.user) {
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+      }
+      notifyAuthChanged();
+    }
+    return response.data;
+  },
+
+  login: async (email, password) => {
+    const response = await api.post('/auth/login', { email, password });
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      if (response.data.user) {
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+      }
+      notifyAuthChanged();
+    }
+    return response.data;
+  },
+
+  logout: () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    notifyAuthChanged();
+  },
+
+  getCurrentUser: async () => {
+    const response = await api.get('/auth/me');
+    return response.data.data;
+  },
+};

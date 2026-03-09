@@ -1,12 +1,14 @@
 :root {
   --color-deep-black: #050505;
   --color-gold: #FFD700;
+  --gold-main: #FFD700;
   --color-white: #FFFFFF;
   --color-light-gray: #B0B0B0;
   --color-dark-gray: #1A1A1A;
   --glass-bg: rgba(10, 10, 10, 0.6);
   --glass-border: rgba(255, 215, 0, 0.4);
   --font-display: 'Orbitron', sans-serif;
+  --font-heading: 'Orbitron', sans-serif;
   --font-body: 'Inter', sans-serif;
   /* Section backgrounds: dark grid + top-left and bottom-right gradients */
   --section-grid: linear-gradient(rgba(255, 215, 0, 0.06) 1px, transparent 1px),

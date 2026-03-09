@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
@@ -20,8 +20,20 @@ export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [driftX, setDriftX] = useState(0);
   const [activeSection, setActiveSection] = useState("hero");
+  const [isAuthed, setIsAuthed] = useState(() => !!localStorage.getItem('token'));
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    const syncAuth = () => setIsAuthed(!!localStorage.getItem('token'));
+    syncAuth();
+    window.addEventListener('auth:changed', syncAuth);
+    window.addEventListener('storage', syncAuth);
+    return () => {
+      window.removeEventListener('auth:changed', syncAuth);
+      window.removeEventListener('storage', syncAuth);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isHome) return;
@@ -69,6 +81,37 @@ export const Navbar = () => {
 
   const navTransform = `translate3d(${driftX + Math.min(scrollY * 0.04, 28)}px, ${isVisible ? 0 : -115}px, 0)`;
 
+  const authLinks = useMemo(() => {
+    if (isAuthed) {
+      // determine if user is admin
+      let dashboardPath = '/dashboard';
+      try {
+        const stored = localStorage.getItem('user');
+        if (stored) {
+          const usr = JSON.parse(stored);
+          if (usr.role === 'admin') {
+            dashboardPath = '/admin/dashboard';
+          }
+        }
+      } catch {}
+      return (
+        <NavLink to={dashboardPath} className="nav-link nav-link-dashboard">
+          Dashboard
+        </NavLink>
+      );
+    }
+    return (
+      <>
+        <NavLink to="/login" className="nav-link nav-link-login">
+          Login
+        </NavLink>
+        <NavLink to="/register" className="nav-link nav-link-register">
+          Register
+        </NavLink>
+      </>
+    );
+  }, [isAuthed]);
+
   const isLinkActive = (item) => {
     if (isHome) return activeSection === item.sectionId;
     return location.pathname === item.path;
@@ -112,6 +155,7 @@ export const Navbar = () => {
               {item.label}
             </NavLink>
           ))}
+          {authLinks}
         </div>
 
         <button
@@ -140,6 +184,46 @@ export const Navbar = () => {
             {item.label}
           </NavLink>
         ))}
+        {isAuthed ? (
+          (() => {
+            let dash = '/dashboard';
+            try {
+              const stored = localStorage.getItem('user');
+              if (stored) {
+                const usr = JSON.parse(stored);
+                if (usr.role === 'admin') {
+                  dash = '/admin/dashboard';
+                }
+              }
+            } catch {}
+            return (
+              <NavLink
+                to={dash}
+                className="mobile-nav-link"
+                onClick={() => setIsMobileOpen(false)}
+              >
+                Dashboard
+              </NavLink>
+            );
+          })()
+        ) : (
+          <>
+            <NavLink
+              to="/login"
+              className="mobile-nav-link"
+              onClick={() => setIsMobileOpen(false)}
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/register"
+              className="mobile-nav-link"
+              onClick={() => setIsMobileOpen(false)}
+            >
+              Register
+            </NavLink>
+          </>
+        )}
       </div>
     </motion.nav>
   );

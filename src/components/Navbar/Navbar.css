@@ -67,6 +67,34 @@
   border-color: rgba(255, 215, 0, 0.5);
 }
 
+.nav-link-login {
+  border: 1px solid rgba(255, 215, 0, 0.4);
+}
+
+.nav-link-register {
+  color: #101010;
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.nav-link-register:hover {
+  color: #101010;
+  background: linear-gradient(135deg, #ffe44d, #c9a227);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.nav-link-dashboard {
+  color: #101010;
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.nav-link-dashboard:hover {
+  color: #101010;
+  background: linear-gradient(135deg, #ffe44d, #c9a227);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
 .nav-menu-btn {
   display: none;
   border: 1px solid rgba(255, 215, 0, 0.28);
