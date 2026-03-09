@@ -10,11 +10,14 @@
   background-size: 100% 100%, 100% 100%, var(--section-grid-size);
   background-color: var(--color-deep-black);
   pointer-events: none;
+  z-index: 0;
 }
 
 .organizers-content {
   max-width: 1200px;
   margin: 0 auto;
+   position: relative;
+  z-index: 1;
 }
 
 .organizers-title {

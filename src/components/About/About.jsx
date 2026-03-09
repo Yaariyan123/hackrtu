@@ -47,6 +47,7 @@ function About() {
       <div className="about-bg-grid" />
       <div className="about-content">
         <h2 className="about-title">ABOUT THE HACKATHON</h2>
+        
         <p className="about-desc">
           This is where speed meets engineering excellence. Build quickly, validate with mentors,
           and present solutions that solve meaningful real-world problems.

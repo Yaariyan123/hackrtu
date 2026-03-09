@@ -1,6 +1,7 @@
 .about {
-  padding: 6rem 5%;
+  padding: 10rem 5% 6rem 5%;
   position: relative;
+  margin-top: 3rem;
 }
 
 .about-bg-grid {
@@ -10,11 +11,14 @@
   background-size: 100% 100%, 100% 100%, var(--section-grid-size);
   background-color: var(--color-deep-black);
   pointer-events: none;
+  z-index: 0;
 }
 
 .about-content {
   max-width: 1200px;
   margin: 0 auto;
+  z-index: 1;
+  position: relative;
 }
 
 .about-title {
@@ -22,8 +26,8 @@
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: var(--color-white);
-  margin-bottom: 1rem;
+  color: white;
+  margin-bottom: 2.5rem;
   text-align: center;
 }
 
@@ -42,6 +46,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .about-card {

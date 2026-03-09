@@ -1,3 +1,4 @@
+import Mario from "../components/Mario/Mario";
 import Hero from '../components/Hero/Hero'
 import About from '../components/About/About'
 import Prizes from '../components/Prizes/Prizes'
@@ -16,6 +17,7 @@ function HomePage() {
       <Timeline />
       <Organizers />
       <Contact />
+      <Mario/>
     </>
   )
 }
